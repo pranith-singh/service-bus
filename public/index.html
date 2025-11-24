@@ -12,9 +12,13 @@
 
     <script>
         async function callApi() {
-            const res = await fetch("/api/hello");
-            const data = await res.json();
-            document.getElementById("result").innerText = data.message;
+            try {
+                const res = await fetch("/api/hello");
+                const data = await res.json();
+                document.getElementById("result").innerText = data.message;
+            } catch (err) {
+                document.getElementById("result").innerText = "API call failed: " + err;
+            }
         }
     </script>
 </body>
