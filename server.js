@@ -4,20 +4,20 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-// Serve static files from public
+// 1️⃣ Serve static files from 'public'
 app.use(express.static(path.join(__dirname, "public")));
 
-// API route
+// 2️⃣ API endpoint
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Hello from Node.js Web App!" });
 });
 
-// Serve index.html for all other routes
+// 3️⃣ Catch-all route for SPA
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
