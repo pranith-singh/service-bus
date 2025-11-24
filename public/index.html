@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PRS Web App</title>
+</head>
+<body>
+    <h1>PRS Web App Running</h1>
+    <p>This web app is deployed in Azure App Service.</p>
+
+    <button onclick="callApi()">Call API</button>
+    <p id="result"></p>
+
+    <script>
+        async function callApi() {
+            const res = await fetch("/api/hello");
+            const data = await res.json();
+            document.getElementById("result").innerText = data.message;
+        }
+    </script>
+</body>
+</html>
